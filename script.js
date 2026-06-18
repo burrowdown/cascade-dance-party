@@ -57,4 +57,34 @@
   dialog.addEventListener("click", (e) => {
     if (e.target === dialog) dialog.close();
   });
+
+  // Swipe navigation on touch devices: drag left → next, right → previous.
+  const SWIPE_THRESHOLD = 40; // px of horizontal travel needed to count as a swipe
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  img.addEventListener(
+    "touchstart",
+    (e) => {
+      const t = e.changedTouches[0];
+      touchStartX = t.clientX;
+      touchStartY = t.clientY;
+    },
+    { passive: true },
+  );
+
+  img.addEventListener(
+    "touchend",
+    (e) => {
+      const t = e.changedTouches[0];
+      const dx = t.clientX - touchStartX;
+      const dy = t.clientY - touchStartY;
+      // Only treat as a swipe if it's far enough and more horizontal than vertical
+      // (so vertical scrolls/flicks don't trigger navigation).
+      if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
+        step(dx < 0 ? 1 : -1);
+      }
+    },
+    { passive: true },
+  );
 })();

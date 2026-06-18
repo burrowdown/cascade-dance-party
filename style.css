@@ -32,7 +32,6 @@ body {
   line-height: 1.6;
 }
 
-/* Headers are the only place the display font appears */
 .banner__title,
 h2,
 summary {
@@ -44,7 +43,6 @@ summary {
 /* ---------- Banner ---------- */
 .banner {
   background: linear-gradient(135deg, var(--aqua), var(--aqua-deep));
-  /* background: var(--aqua); */
   color: #ffffff;
   text-align: center;
   padding: 2.25rem 1.25rem;
@@ -159,6 +157,10 @@ details[open] {
   box-shadow: 0 8px 24px rgba(0, 122, 147, 0.12);
 }
 
+details p {
+  padding-inline: 0.5rem;
+}
+
 summary {
   cursor: pointer;
   font-size: 1.5rem;
@@ -175,7 +177,6 @@ summary:focus-visible {
   outline-offset: 3px;
 }
 
-/* Compact details — smaller boxes, bold body-font summaries (no display font) */
 .details--compact {
   gap: 0.6rem;
 }
@@ -198,6 +199,10 @@ summary:focus-visible {
 .details--compact details p {
   margin: 0.5rem 0 0;
   font-size: 0.95rem;
+}
+
+.details--compact details[open] p {
+  margin-bottom: 0.5rem;
 }
 
 /* ---------- Carousel ---------- */
@@ -309,9 +314,13 @@ summary:focus-visible {
 }
 
 .lightbox[open] {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "figure figure"
+    "prev   next";
   justify-content: center;
+  align-content: center;
   gap: 1rem;
 }
 
@@ -321,12 +330,15 @@ summary:focus-visible {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  max-width: 90vw;
+  min-width: 0;
+  grid-area: figure;
+  justify-self: center;
+  max-width: 94vw;
 }
 
 .lightbox__img {
-  max-width: 90vw;
-  max-height: 82vh;
+  max-width: 100%;
+  max-height: 72vh;
   object-fit: contain;
   border-radius: var(--radius);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
@@ -376,7 +388,32 @@ summary:focus-visible {
   flex-shrink: 0;
 }
 
+.lightbox__nav--prev {
+  grid-area: prev;
+  justify-self: end;
+}
+
+.lightbox__nav--next {
+  grid-area: next;
+  justify-self: start;
+}
+
+/* Desktop: switch to a single row with the buttons flanking the image */
 @media (min-width: 720px) {
+  .lightbox[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox__figure {
+    max-width: calc(100vw - 11rem);
+  }
+
+  .lightbox__img {
+    max-height: 82vh;
+  }
+
   .lightbox__nav {
     width: 4rem;
     height: 4rem;
