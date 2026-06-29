@@ -6,7 +6,8 @@
   --ink-soft: #3d5b63;
   --aqua: #00a7c4;
   --aqua-deep: #007a93; /* AA-accessible on white */
-  --coral: #ff6b5e;
+  /* --coral: #ff6b5e; */
+  --coral: #fa4a3a;
   --sun: #ffd23f;
   --radius: 12px;
   --maxw: 1000px;
@@ -35,9 +36,21 @@ body {
 .banner__title,
 h2,
 summary {
-  font-family: "Pacifico", "Kaushan Script", "Nunito", cursive;
+  /* font-family: "Fuzzy Bubbles", cursive; */
+  /* font-family: "Kaushasn Script", cursive; */
+  /* font-family: "Knewave", cursive; */
+  /* font-family: "Marck Script", cursive; */
+  /* font-family: "Merienda", cursive; */
+  /* font-family: "Nerko One", cursive; */
+  /* font-family: "Oregano", cursive; */
+  /* font-family: "Pacifico", cursive; */
+  /* font-family: "Pangolin", cursive; */
+  /* font-family: "Permanent Marker", cursive; */
+  /* font-family: "Nunito", cursive; */
+  font-family: "Original Surfer", cursive;
+
   font-weight: 400;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
 }
 
 /* ---------- Banner ---------- */
@@ -54,11 +67,11 @@ summary {
   white-space: nowrap;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 700;
+  font-weight: 500;
   background: linear-gradient(180deg, var(--sun) 0%, 65%, var(--coral) 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: var(--sun);
 }
 
 .banner__title {
@@ -67,6 +80,35 @@ summary {
   line-height: 1.1;
   overflow-wrap: break-word;
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Callout ---------- */
+.callout {
+  max-width: 720px;
+  margin: 1.75rem auto 0;
+  padding: 0 1.25rem;
+}
+
+.callout__text {
+  margin: 0;
+  background: #e8f8fb;
+  color: var(--ink);
+  border: 2px solid var(--aqua-deep);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.4rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 122, 147, 0.15);
+}
+
+.callout__text p {
+  margin: 0;
+}
+
+.callout__text p + p {
+  margin-top: 0.85rem;
+  font-weight: 400;
 }
 
 /* ---------- Sections ---------- */
