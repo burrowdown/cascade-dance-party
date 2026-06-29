@@ -6,7 +6,6 @@
   --ink-soft: #3d5b63;
   --aqua: #00a7c4;
   --aqua-deep: #007a93; /* AA-accessible on white */
-  /* --coral: #ff6b5e; */
   --coral: #fa4a3a;
   --sun: #ffd23f;
   --radius: 12px;
@@ -24,10 +23,9 @@ html {
 body {
   margin: 0;
   font-family:
-    "Nunito",
     system-ui,
     -apple-system,
-    sans-serif;
+    serif;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.6;
@@ -36,21 +34,14 @@ body {
 .banner__title,
 h2,
 summary {
-  /* font-family: "Fuzzy Bubbles", cursive; */
-  /* font-family: "Kaushasn Script", cursive; */
-  /* font-family: "Knewave", cursive; */
-  /* font-family: "Marck Script", cursive; */
-  /* font-family: "Merienda", cursive; */
-  /* font-family: "Nerko One", cursive; */
-  /* font-family: "Oregano", cursive; */
-  /* font-family: "Pacifico", cursive; */
-  /* font-family: "Pangolin", cursive; */
-  /* font-family: "Permanent Marker", cursive; */
-  /* font-family: "Nunito", cursive; */
   font-family: "Original Surfer", cursive;
 
   font-weight: 400;
   letter-spacing: 0.2px;
+}
+
+a {
+  color: var(--aqua-deep);
 }
 
 /* ---------- Banner ---------- */
@@ -239,8 +230,9 @@ summary:focus-visible {
 }
 
 .details--compact details p {
-  margin: 0.6rem;
+  margin: 0.6rem 0;
   font-size: 0.95rem;
+  padding-inline: 1rem;
 }
 
 .details--compact details[open] p {
