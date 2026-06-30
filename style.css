@@ -459,4 +459,8 @@ summary:focus-visible {
     width: 4rem;
     height: 4rem;
   }
+
+  .main-callout {
+    margin-top: 5rem;
+  }
 }
