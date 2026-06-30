@@ -44,6 +44,13 @@ a {
   color: var(--aqua-deep);
 }
 
+.main-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
 /* ---------- Banner ---------- */
 .banner {
   background: linear-gradient(135deg, var(--aqua), var(--aqua-deep));
